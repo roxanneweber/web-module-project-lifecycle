@@ -37,6 +37,18 @@ class App extends Component {
 		}
 	}
 
+	onChange = (e) => {
+		this.setState({
+			...this.state,
+			currentUser: e.target.value,
+		});
+	};
+
+	onSubmit = (e) => {
+		e.preventDefault();
+		console.log(this.state.text);
+	};
+
 	render() {
 		return (
 			<>
@@ -44,7 +56,20 @@ class App extends Component {
 					<NavBar />
 				</nav>
 				<div className='container'>
-					<Search />
+					<form onSubmit={this.onSubmit} className='form'>
+						<input
+							type='text'
+							name='text'
+							placeholder='Search for a Username...'
+							value={this.state.text}
+							onChange={this.onChange}
+						/>
+						<input
+							type='submit'
+							value='Search'
+							className='btn btn-dark btn-block'
+						/>
+					</form>
 					<UserCard user={this.state.user} />
 					<FollowerList followers={this.state.followers} />
 				</div>
