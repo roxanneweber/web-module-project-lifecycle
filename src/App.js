@@ -21,18 +21,18 @@ class App extends Component {
 
 		followers: [
 			{
-				login: 'michellesomething',
-				avatar_url: 'sdfsdf',
+				login: 'michelle',
+				avatar_url: 'https://avatars.githubusercontent.com/u/45055471?v=4',
+				html_url: 'lsdkjsld',
+			},
+			{
+				login: 'michellesom',
+				avatar_url: 'https://avatars.githubusercontent.com/u/45496047?v=4',
 				html_url: 'lsdkjsld',
 			},
 			{
 				login: 'michellesomething',
-				avatar_url: 'sdfsdf',
-				html_url: 'lsdkjsld',
-			},
-			{
-				login: 'michellesomething',
-				avatar_url: 'sdfsdf',
+				avatar_url: 'https://avatars.githubusercontent.com/u/51681480?v=4',
 				html_url: 'lsdkjsld',
 			},
 		],

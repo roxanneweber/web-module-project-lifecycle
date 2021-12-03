@@ -3,12 +3,13 @@ import Follower from './Follower';
 
 class FollowerList extends Component {
 	render() {
+		console.log(this.props);
 		return (
-			<div className='container'>
-				<div className={userStyle}>
-					<h3>Followers:</h3>
-					<Follower />
-				</div>
+			<div className={userStyle}>
+				<h3>Followers:</h3>
+				{this.props.followers.map((follower) => {
+					return <Follower key={follower.login} follower={follower} />;
+				})}
 			</div>
 		);
 	}
