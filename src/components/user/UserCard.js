@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 export class UserCard extends Component {
 	render() {
 		const { user } = this.props;
-		console.log(user);
 		return (
 			<div className='card grid-2'>
 				<div className='all-center'>

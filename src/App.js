@@ -24,6 +24,19 @@ class App extends Component {
 			});
 	}
 
+	componentDidUpdate(prevProps, prevState) {
+		if (this.state.user !== prevState.user) {
+			axios
+				.get(`https://api.github.com/users/${this.state.currentUser}/followers`)
+				.then((resp) => {
+					this.setState({
+						...this.state,
+						followers: resp.data,
+					});
+				});
+		}
+	}
+
 	render() {
 		return (
 			<>
@@ -33,8 +46,8 @@ class App extends Component {
 				<div className='container'>
 					<Search />
 					<UserCard user={this.state.user} />
+					<FollowerList followers={this.state.followers} />
 				</div>
-				<FollowerList followers={this.state.followers} />
 			</>
 		);
 	}

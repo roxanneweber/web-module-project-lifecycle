@@ -411,4 +411,15 @@ table th {
 		text-align: center;
 		justify-content: center;
 	}
+
+	/* Custom */
+	.userStyle {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+
+	.followersCard {
+		display: block;
+	}
 }
