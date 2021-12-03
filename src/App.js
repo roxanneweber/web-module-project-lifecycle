@@ -46,7 +46,14 @@ class App extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		console.log(this.state.text);
+		axios
+			.get(`https://api.github.com/users/${this.state.currentUser}`)
+			.then((resp) => {
+				this.setState({
+					...this.state,
+					user: resp.data,
+				});
+			});
 	};
 
 	render() {
