@@ -2,34 +2,34 @@ import React, { Component } from 'react';
 
 export class UserCard extends Component {
 	render() {
+		const { user } = this.props;
+		console.log(user);
 		return (
 			<div className='card grid-2'>
 				<div className='all-center'>
 					<img
 						className='round-img'
-						src='https://avatars.githubusercontent.com/u/89050736?v=4'
+						src={user.avatar_url}
 						alt=''
 						style={{ width: '200px' }}
 					/>
-					<a
-						href='https://github.com/roxanneweber'
-						className='btn btn-light my-1'
-					>
+					<a href={user.html_url} className='btn btn-light my-1'>
 						Visit my Website
 					</a>
 				</div>
 				<div>
-					<h2>Roxanne Weber</h2>
-					<h4>(roxanneweber)</h4>
+					<h2>{user.name}</h2>
+					<h4>({user.login})</h4>
 					<h5>Bio: </h5>
-					<p>
-						My career skills include project management, software engineering,
-						education and public administration.
-					</p>
+					<p>{user.bio} </p>
 					<div className='card text-center'>
-						<div className='badge badge-primary'>Repos: 101</div>
-						<div className='badge badge-light'>Followers: 29</div>
-						<div className='badge badge-success'>Following: 10</div>
+						<div className='badge badge-primary'>
+							Repos: {user.public_repos}
+						</div>
+						<div className='badge badge-light'>Followers: {user.followers}</div>
+						<div className='badge badge-success'>
+							Following: {user.following}
+						</div>
 					</div>
 				</div>
 			</div>

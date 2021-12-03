@@ -6,6 +6,38 @@ import FollowerList from './components/followers/FollowerList';
 import './app.css';
 
 class App extends Component {
+	state = {
+		currentUser: 'roxanneweber',
+		user: {
+			avatar_url: 'https://avatars.githubusercontent.com/u/89050736?v=4',
+			html_url: 'https://github.com/roxanneweber',
+			name: 'Roxanne Weber',
+			login: 'roxanneweber',
+			public_repos: 96,
+			followers: 22,
+			following: 31,
+			bio: 'this is my bio',
+		},
+
+		followers: [
+			{
+				login: 'michellesomething',
+				avatar_url: 'sdfsdf',
+				html_url: 'lsdkjsld',
+			},
+			{
+				login: 'michellesomething',
+				avatar_url: 'sdfsdf',
+				html_url: 'lsdkjsld',
+			},
+			{
+				login: 'michellesomething',
+				avatar_url: 'sdfsdf',
+				html_url: 'lsdkjsld',
+			},
+		],
+	};
+
 	render() {
 		return (
 			<>
@@ -14,9 +46,9 @@ class App extends Component {
 				</nav>
 				<div className='container'>
 					<Search />
-					<UserCard />
+					<UserCard user={this.state.user} />
 				</div>
-				<FollowerList />
+				<FollowerList followers={this.state.followers} />
 			</>
 		);
 	}
