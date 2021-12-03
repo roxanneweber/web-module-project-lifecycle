@@ -3,40 +3,26 @@ import NavBar from './components/layout/NavBar';
 import Search from './components/layout/Search';
 import UserCard from './components/user/UserCard';
 import FollowerList from './components/followers/FollowerList';
+import axios from 'axios';
 import './app.css';
 
 class App extends Component {
 	state = {
 		currentUser: 'roxanneweber',
-		user: {
-			avatar_url: 'https://avatars.githubusercontent.com/u/89050736?v=4',
-			html_url: 'https://github.com/roxanneweber',
-			name: 'Roxanne Weber',
-			login: 'roxanneweber',
-			public_repos: 96,
-			followers: 22,
-			following: 31,
-			bio: 'this is my bio',
-		},
-
-		followers: [
-			{
-				login: 'michelle',
-				avatar_url: 'https://avatars.githubusercontent.com/u/45055471?v=4',
-				html_url: 'lsdkjsld',
-			},
-			{
-				login: 'michellesom',
-				avatar_url: 'https://avatars.githubusercontent.com/u/45496047?v=4',
-				html_url: 'lsdkjsld',
-			},
-			{
-				login: 'michellesomething',
-				avatar_url: 'https://avatars.githubusercontent.com/u/51681480?v=4',
-				html_url: 'lsdkjsld',
-			},
-		],
+		user: {},
+		followers: [],
 	};
+
+	componentDidMount() {
+		axios
+			.get(`https://api.github.com/users/${this.state.currentUser}`)
+			.then((resp) => {
+				this.setState({
+					...this.state,
+					user: resp.data,
+				});
+			});
+	}
 
 	render() {
 		return (

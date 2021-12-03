@@ -3,7 +3,6 @@ import Follower from './Follower';
 
 class FollowerList extends Component {
 	render() {
-		console.log(this.props);
 		return (
 			<div className={userStyle}>
 				<h3>Followers:</h3>
